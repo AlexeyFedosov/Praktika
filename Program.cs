@@ -28,3 +28,45 @@ while (indexA < length)
 }
 int midA = temp / arrayA.Length;
 Console.WriteLine($"среднее арифметическое А = {midA}");
+
+indexA = 0;
+int[] arrayB = new int[length];
+int indexB = 0;                          //заполняем второй массив
+
+while (indexA < length)
+{
+    if ((arrayA[indexA] < midA) && (arrayA[indexA] % 2 != 0))
+    {
+        arrayB[indexB] = arrayA[indexA];
+        indexA++;
+        indexB++;
+    }
+    else
+    {
+        indexA++;
+    }
+}
+
+if (indexB == 0)
+{
+    Console.WriteLine("Нет значений для заполнения второго массива.");
+}
+
+indexB = arrayB.Length - 1;
+while (arrayB[indexB] == 0)
+{
+    length = length - 1;
+    indexB = indexB - 1;
+}
+indexB = 0;
+int currentElement = arrayB[0];
+Console.WriteLine($"B{indexB + 1} = {currentElement}");
+while (indexB <= (length - 1))
+{
+    if(arrayB[indexB]>currentElement)
+    {
+        Console.WriteLine($"B{indexB + 1} = {arrayB[indexB]}");
+        currentElement = arrayB[indexB];
+    }
+    indexB++;
+}

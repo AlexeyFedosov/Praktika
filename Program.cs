@@ -6,15 +6,25 @@
 int length = 50;
 int[] arrayA = new int[length];
 int indexA = 0;
-while (indexA < length)                      //заполняем первый массив
+while (indexA < length)                      // первый массив
 {
     arrayA[indexA] = new Random().Next(10, 100);
     indexA++;
 }
 
 indexA = 0;
-while (indexA < length)                      //выводим первый массив
+while (indexA < length)                      //вывод первый массив
 {
     Console.WriteLine($"A{indexA + 1} = {arrayA[indexA]}");
     indexA++;
 }
+
+indexA = 0;                         //среднее арифметическое массива А
+int temp = 0;
+while (indexA < length)
+{
+    temp = arrayA[indexA] + temp;
+    indexA++;
+}
+int midA = temp / arrayA.Length;
+Console.WriteLine($"среднее арифметическое А = {midA}");
